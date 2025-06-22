@@ -1,0 +1,61 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Genilton Souza",
+    "classifications": [
+        "Clean Architecture",
+        "Web API",
+        "Domain Driven Design"
+    ],
+    "identity": "DotNet.CleanArch.Template",
+    "name": "Clean Architecture .NET Template",
+    "shortName": "cleanarch",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "sourceName": "DotNet.CleanArch.Template",
+    "preferNameDirectory": true,
+    "symbols": {
+        "TemplateName": {
+            "type": "parameter",
+            "datatype": "text",
+            "replaces": "DotNet.CleanArch.Template",
+            "fileRename": "DotNet.CleanArch.Template",
+            "defaultValue": "MyApp",
+            "description": "The name of the solution and root namespace"
+        }
+    },
+    "sources": [
+        {
+            "source": "./src",
+            "target": "./src",
+            "pathRename": {
+                "DotNet.CleanArch.Template.Application": "{TemplateName}.Application",
+                "DotNet.CleanArch.Template.Domain": "{TemplateName}.Domain",
+                "DotNet.CleanArch.Template.Infrastructure": "{TemplateName}.Infrastructure",
+                "DotNet.CleanArch.Template.WebApi": "{TemplateName}.WebApi"
+            }
+        }
+    ],
+    "primaryOutputs": [
+        {
+            "path": "src/{TemplateName}.WebApi/{TemplateName}.WebApi.csproj"
+        },
+        {
+            "path": "src/{TemplateName}.Application/{TemplateName}.Application.csproj"
+        },
+        {
+            "path": "src/{TemplateName}.Domain/{TemplateName}.Domain.csproj"
+        },
+        {
+            "path": "src/{TemplateName}.Infrastructure/{TemplateName}.Infrastructure.csproj"
+        }
+    ],
+    "postActions": [
+        {
+            "description": "Restore NuGet packages",
+            "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+            "continueOnError": true
+        }
+    ]
+}
